@@ -1,8 +1,9 @@
 <template>
-<h1>Coucou</h1>
+  <Presentation />
 </template>
 
 <script setup lang="ts">
+import Presentation from './components/Presentation.vue';
 
 </script>
 
