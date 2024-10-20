@@ -52,6 +52,7 @@ p {
 p {
   font-size: clamp(1vw, 2em, 2vw);
   margin: 0;
+  font-family: 'Jai';
 }
 
 button {
