@@ -4,7 +4,7 @@
       <h1>AckerProd</h1>
       <div class="Presentation__textcontainer__text">
         <p>Station de développement web et 3D</p>
-        <button><img src="../assets/fleche-vers-le-haut.png"/></button>
+        <button><img src="../assets/fleche-vers-le-haut.png" /></button>
       </div>
     </div>
   </section>
@@ -17,21 +17,40 @@ import { ref } from "vue";
 <style scoped lang="scss">
 .Presentation {
   height: 100vh;
-  background: linear-gradient(155deg, rgba(2,0,36,0.15) 20%, rgba(0,0,0,1) 65%),
+  background: linear-gradient(
+      155deg,
+      rgba(2, 0, 36, 0.15) 20%,
+      rgba(0, 0, 0, 1) 65%
+    ),
     url("../assets/portfoliobackground.jpg") no-repeat center center;
   background-size: cover;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: end;
+
+  @media (min-width: 900px) {
+    justify-content: end;
+  }
 
   &__textcontainer {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    padding: 0 15vw 15em 0;
+    align-items: center;
+    padding: 0 0 15em 0;
+
+    @media (min-width: 900px) {
+      align-items: start;
+      padding: 0 15vw 15em 0;
+    }
 
     &__text {
-      margin-left: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @media (min-width: 900px) {
+        margin-left: 30px;
+      }
     }
   }
 }
@@ -39,9 +58,13 @@ import { ref } from "vue";
 h1 {
   font-family: "Carnavonts";
   margin: 0;
-  font-size: clamp(10vw, 10em, 15vw);
+  font-size: 20vw;
   line-height: 1em;
-  filter: drop-shadow(#fff)
+  filter: drop-shadow(#fff);
+
+  @media (min-width: 900px) {
+    font-size: clamp(10vw, 12vw, 15vw);
+  }
 }
 
 h1,
@@ -50,9 +73,14 @@ p {
 }
 
 p {
-  font-size: clamp(1vw, 2em, 2vw);
+  font-size: 4vw;
   margin: 0;
-  font-family: 'Jai';
+  font-family: "Jai";
+  max-width: 100%;
+
+  @media (min-width: 900px) {
+    font-size: clamp(1vw, 2em, 2vw);
+  }
 }
 
 button {
@@ -70,19 +98,19 @@ button {
 
   &:hover img {
     transform: scale(1.1);
-    filter: drop-shadow(2px 2px 8px #cc00ffb6)
+    filter: drop-shadow(2px 2px 8px #cc00ffb6);
   }
 }
 
 @keyframes click {
-0% {
-  transform: translateY(0px)
-}
-80% {
-  transform: translateY(10px)
-}
-100% {
-  transform: translateY(0px)
-}
+  0% {
+    transform: translateY(0px);
+  }
+  20% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 </style>
