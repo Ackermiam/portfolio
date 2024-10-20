@@ -10,17 +10,13 @@
   </section>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
-</script>
-
 <style scoped lang="scss">
 .Presentation {
   height: 100vh;
   background: linear-gradient(
-      155deg,
-      rgba(2, 0, 36, 0.15) 20%,
-      rgba(0, 0, 0, 1) 65%
+      160deg,
+      rgba(2, 0, 36, 0.15) 35%,
+      rgba(0, 0, 0, 1) 55%
     ),
     url("../assets/portfoliobackground.jpg") no-repeat center center;
   background-size: cover;

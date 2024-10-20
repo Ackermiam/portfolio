@@ -1,9 +1,11 @@
 <template>
-  <Presentation />
+  <FirstSection />
+  <SecondSection />
 </template>
 
 <script setup lang="ts">
-import Presentation from './components/Presentation.vue';
+import FirstSection from './components/FirstSection.vue';
+import SecondSection from './components/SecondSection.vue';
 
 </script>
 
