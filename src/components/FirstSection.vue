@@ -45,7 +45,8 @@
       align-items: center;
 
       @media (min-width: 900px) {
-        margin-left: 30px;
+        align-items: start;
+        margin-left: 40px;
       }
     }
   }
@@ -71,7 +72,7 @@ p {
 p {
   font-size: 4vw;
   margin: 0;
-  font-family: "Jai";
+  font-family: "Nostal";
   max-width: 100%;
 
   @media (min-width: 900px) {
