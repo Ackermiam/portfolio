@@ -14,9 +14,9 @@
 .Presentation {
   height: 100vh;
   background: linear-gradient(
-      160deg,
-      rgba(2, 0, 36, 0.15) 35%,
-      rgba(0, 0, 0, 1) 55%
+      170deg,
+      rgba(2, 0, 36, 0) 35%,
+      rgba(0, 0, 0, 1) 65%
     ),
     url("../assets/portfoliobackground.jpg") no-repeat center center;
   background-size: cover;
