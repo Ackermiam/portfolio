@@ -45,9 +45,12 @@ export class Logic {
       });
       const cube = new Mesh(geometry, material);
       this.mesh = cube;
-      this.mesh.position.x = -1;
+      this.mesh.position.x = -0.7;
+      this.mesh.scale.x = 4;
+      this.mesh.scale.y = 4;
+      this.mesh.scale.z = 4;
 
-      this.renderer = new WebGLRenderer();
+      this.renderer = new WebGLRenderer({ antialias: true });
       this.renderer.setSize(width, height);
       componentToMount?.appendChild(this.renderer.domElement);
 
@@ -61,7 +64,6 @@ export class Logic {
       this.scene.add(ambientLight);
 
       window.addEventListener("scroll", this.moveOnScroll.bind(this));
-      console.log(this.mesh);
       this.tick();
     }
   }
@@ -76,13 +78,22 @@ export class Logic {
   }
 
   moveOnScroll() {
-    if(scrollDown.value === true) {
+    console.log(this.mesh);
+    if (scrollDown.value === true) {
+      if (this.mesh.position.x >= 0.24) {
+      } else {
+        this.mesh.position.x += 0.01;
+      }
+
+      if (this.mesh.scale.x >= 13.9) {
+      } else {
+        this.mesh.scale.x += 0.1;
+        this.mesh.scale.y += 0.1;
+        this.mesh.scale.z += 0.1;
+      }
+
       this.mesh.rotation.x += 0.02;
       this.mesh.rotation.y += 0.02;
-      this.mesh.scale.x += 0.1;
-      this.mesh.scale.y += 0.1;
-      this.mesh.scale.z += 0.1;
-      this.mesh.position.x += 0.009;
     } else {
       this.mesh.rotation.x -= 0.02;
       this.mesh.rotation.y -= 0.02;
@@ -91,7 +102,6 @@ export class Logic {
       this.mesh.scale.z -= 0.1;
       this.mesh.position.x -= 0.009;
     }
-
   }
 
   move() {

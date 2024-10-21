@@ -8,7 +8,7 @@ export const useScroll = () => {
   const isScrollDown = () => {
 
     window.addEventListener("scroll", () => {
-      const newScroll = window.scrollY; // Position actuelle
+      const newScroll = window.scrollY;
 
       scrollDown.value = newScroll > lastScroll.value;
 

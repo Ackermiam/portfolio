@@ -27,7 +27,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .SecondSection {
   height: 100vh;
-  background: #000;
+  background: #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,22 +39,31 @@ onMounted(() => {
 
   &__Mesh {
     width: 100%;
-    height: 100%;
+    height: 50%;
 
     @media (min-width: 900px) {
+      height: 100%;
       width: 50%;
     }
   }
 
   &__Text {
-    width: 50%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+
+    @media (min-width: 900px) {
+      height: 100%;
+      width: 50%;
+    }
   }
 }
 
 p {
   padding: 0 6vw;
   color: white;
-  font-size: 2vw;
+  font-size: 5vw;
   margin: 0;
   font-family: "Nostal";
   max-width: 100%;
