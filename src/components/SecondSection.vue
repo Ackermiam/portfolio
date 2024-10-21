@@ -27,7 +27,7 @@ onMounted(() => {
 <style scoped lang="scss">
 .SecondSection {
   height: 100vh;
-  background: #000000;
+  background: linear-gradient(0deg, rgba(200,81,255,1) 0%, rgba(0,0,0,1) 86%);
   display: flex;
   flex-direction: column;
   justify-content: center;

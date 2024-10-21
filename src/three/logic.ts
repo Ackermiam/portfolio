@@ -35,7 +35,7 @@ export class Logic {
       this.camera.position.set(0, 0, 4);
 
       const color = new Color("#ffb3f2");
-      const geometry = new BoxGeometry(0.1, 0.1, 0.1);
+      const geometry = new BoxGeometry(0.2, 0.2, 0.2);
       const material = new MeshPhongMaterial({
         color,
         emissive: color,
@@ -45,12 +45,12 @@ export class Logic {
       });
       const cube = new Mesh(geometry, material);
       this.mesh = cube;
-      this.mesh.position.x = -0.7;
       this.mesh.scale.x = 4;
       this.mesh.scale.y = 4;
       this.mesh.scale.z = 4;
 
       this.renderer = new WebGLRenderer({ antialias: true });
+      this.renderer.setClearColor(0x000000, 0);
       this.renderer.setSize(width, height);
       componentToMount?.appendChild(this.renderer.domElement);
 
@@ -78,14 +78,8 @@ export class Logic {
   }
 
   moveOnScroll() {
-    console.log(this.mesh);
     if (scrollDown.value === true) {
-      if (this.mesh.position.x >= 0.24) {
-      } else {
-        this.mesh.position.x += 0.01;
-      }
-
-      if (this.mesh.scale.x >= 13.9) {
+      if (this.mesh.scale.x >= 7) {
       } else {
         this.mesh.scale.x += 0.1;
         this.mesh.scale.y += 0.1;
@@ -95,12 +89,14 @@ export class Logic {
       this.mesh.rotation.x += 0.02;
       this.mesh.rotation.y += 0.02;
     } else {
+      if (this.mesh.scale.x <= 2) {
+      } else {
+        this.mesh.scale.x -= 0.1;
+        this.mesh.scale.y -= 0.1;
+        this.mesh.scale.z -= 0.1;
+      }
       this.mesh.rotation.x -= 0.02;
       this.mesh.rotation.y -= 0.02;
-      this.mesh.scale.x -= 0.1;
-      this.mesh.scale.y -= 0.1;
-      this.mesh.scale.z -= 0.1;
-      this.mesh.position.x -= 0.009;
     }
   }
 

@@ -11,7 +11,6 @@
 <style scoped lang="scss">
 .ThirdSection {
   height: 100vh;
-  background: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
