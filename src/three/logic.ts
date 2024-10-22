@@ -89,7 +89,7 @@ export class Logic {
       this.mesh.rotation.x += 0.02;
       this.mesh.rotation.y += 0.02;
     } else {
-      if (this.mesh.scale.x <= 3) {
+      if (this.mesh.scale.x <= 4) {
       } else {
         this.mesh.scale.x -= 0.1;
         this.mesh.scale.y -= 0.1;
