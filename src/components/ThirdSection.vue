@@ -1,11 +1,21 @@
 <template>
   <section class="ThirdSection">
-    <div class="ThirdSection__container" ref="scrollableContent">
+    <div v-if="!isMobile()" class="ThirdSection__container" ref="scrollableContent">
       <div class="ThirdSection__slider" ref="animatedContent">
         <div
           v-for="(_, index) in slides"
           :key="index"
           class="ThirdSection__slider__project"
+          ref="slide"
+        ></div>
+      </div>
+    </div>
+    <div v-if="isMobile()" class="ThirdSection__containerMobile">
+      <div class="ThirdSection__containerMobile__slider" ref="animatedContent">
+        <div
+          v-for="(_, index) in slides"
+          :key="index"
+          class="ThirdSection__containerMobile__slider__project"
           ref="slide"
         ></div>
       </div>
@@ -20,7 +30,10 @@ const animatedContent = ref();
 const scrollableContent = ref();
 const slides = 7;
 const slide = ref();
-const isMobile = /Mobi/i.test(navigator.userAgent)
+
+const isMobile = () => {
+  return window.innerWidth <= 900;
+}
 
 const handleScroll = () => {
   const progress = animatedContent.value.offsetTop / (scrollableContent.value.scrollHeight - animatedContent.value.offsetHeight);
@@ -32,11 +45,7 @@ const handleScroll = () => {
 
 onMounted(() => {
   scrollableContent.value.style.setProperty('--sliderWidth', `${(slides*slide.value[0].clientWidth + slides*50 + 500)}px`)
-  if(isMobile) {
-    console.log('coucou')
-  } else {
-    window.addEventListener("scroll", handleScroll);
-  }
+  window.addEventListener("scroll", handleScroll);
 })
 
 onUnmounted(() => {
@@ -57,8 +66,13 @@ onUnmounted(() => {
     padding-top: 200px;
 
   &__container {
-    position: relative;
-    height: 300vh;
+    display: none;
+
+    @media (min-width: 900px) {
+      display: flex;
+      position: relative;
+      height: 300vh;
+    }
   }
 
   &__slider {
@@ -78,6 +92,18 @@ onUnmounted(() => {
       backdrop-filter: blur(20px);
       border-radius: 8px;
       margin: 0 25px;
+    }
+  }
+
+  &__containerMobile {
+    height: 80vh;
+
+    @media (min-width: 900px) {
+      display: none;
+    }
+
+    &__slider {
+
     }
   }
 }
