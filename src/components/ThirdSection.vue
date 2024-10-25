@@ -44,8 +44,10 @@ const handleScroll = () => {
 }
 
 onMounted(() => {
-  scrollableContent.value.style.setProperty('--sliderWidth', `${(slides*slide.value[0].clientWidth + slides*50 + 500)}px`)
-  window.addEventListener("scroll", handleScroll);
+  if(scrollableContent.value) {
+    scrollableContent.value.style.setProperty('--sliderWidth', `${(slides*slide.value[0].clientWidth + slides*50 + 500)}px`)
+    window.addEventListener("scroll", handleScroll);
+  }
 })
 
 onUnmounted(() => {
@@ -63,7 +65,10 @@ onUnmounted(() => {
     );
     display: flex;
     align-items: start;
-    padding-top: 200px;
+
+    @media (min-width: 900px) {
+      padding-top: 200px;
+    }
 
   &__container {
     display: none;
@@ -97,13 +102,34 @@ onUnmounted(() => {
 
   &__containerMobile {
     height: 80vh;
+    display: flex;
+    align-items: center;
 
     @media (min-width: 900px) {
       display: none;
     }
 
     &__slider {
+      width: 100vw;
+      display: flex;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &__project {
+        min-width: 300px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.164);
+        backdrop-filter: blur(20px);
+        border-radius: 8px;
+        margin: 0 25px;
+      }
     }
   }
 }
