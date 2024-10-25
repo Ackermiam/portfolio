@@ -28,8 +28,38 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 const animatedContent = ref();
 const scrollableContent = ref();
-const slides = 7;
 const slide = ref();
+
+const slides: Record<string, string>[] = [
+  {
+    background: '',
+    url: 'https://ackermiam.github.io/rp-game/'
+  },
+  {
+    background: '',
+    url: 'https://ackermiam.github.io/egirl-invaders/'
+  },
+  {
+    background: '',
+    url: ''
+  },
+  {
+    background: '',
+    url: ''
+  },
+  {
+    background: '',
+    url: ''
+  },
+  {
+    background: '',
+    url: ''
+  },
+  {
+    background: '',
+    url: ''
+  },
+]
 
 const isMobile = () => {
   return window.innerWidth <= 900;
