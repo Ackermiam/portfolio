@@ -3,13 +3,7 @@
     <div class="SecondSection__Mesh" id="three"></div>
     <div class="SecondSection__Text">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Développeur front-end JavaScript/TypeScript, je crée surtout des applications avec Vue.js et Nuxt. Depuis quelque temps, la 3D m'intrigue fortement, je me lance donc dans l'apprentissage et la création de petites expériences et jeux sympas avec Three.js. J’ai aussi envie d’explorer des technos immersives comme la réalité virtuelle et augmentée pour enrichir l'expérience utilisateur.
       </p>
     </div>
   </section>
@@ -62,7 +56,7 @@ onMounted(() => {
 
 p {
   padding: 0 6vw;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 5vw;
   margin: 0;
   font-family: "Nostal";

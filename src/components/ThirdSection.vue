@@ -12,12 +12,13 @@
           class="ThirdSection__slider__project"
           :style="{ background: `url(${slide.background})` }"
           ref="slide"
+          @click="redirect(slide.url)"
         >
           <h3 class="ThirdSection__slider__project__title">{{ slide.name }}</h3>
         </div>
       </div>
     </div>
-    
+
     <div v-if="isMobile()" class="ThirdSection__containerMobile">
       <div class="ThirdSection__containerMobile__slider" ref="animatedContent">
         <div
@@ -30,6 +31,7 @@
             backgroundPosition: 'center center',
           }"
           ref="slide"
+          @click="redirect(slide.url)"
         >
           <h3 class="ThirdSection__containerMobile__slider__project__title">
             {{ slide.name }}
@@ -101,6 +103,10 @@ const handleScroll = () => {
   }px)`;
 };
 
+const redirect = (url: string) => {
+  window.open(url, '_blank');
+}
+
 onMounted(() => {
   if (scrollableContent.value) {
     scrollableContent.value.style.setProperty(
@@ -139,7 +145,7 @@ onUnmounted(() => {
     @media (min-width: 900px) {
       display: flex;
       position: relative;
-      height: 300vh;
+      height: 400vh;
     }
   }
 
