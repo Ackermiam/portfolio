@@ -1,23 +1,40 @@
 <template>
   <section class="ThirdSection">
-    <div v-if="!isMobile()" class="ThirdSection__container" ref="scrollableContent">
+    <div
+      v-if="!isMobile()"
+      class="ThirdSection__container"
+      ref="scrollableContent"
+    >
       <div class="ThirdSection__slider" ref="animatedContent">
         <div
-          v-for="(_, index) in slides"
+          v-for="(slide, index) in slides"
           :key="index"
           class="ThirdSection__slider__project"
+          :style="{ background: `url(${slide.background})` }"
           ref="slide"
-        ></div>
+        >
+          <h3 class="ThirdSection__slider__project__title">{{ slide.name }}</h3>
+        </div>
       </div>
     </div>
+    
     <div v-if="isMobile()" class="ThirdSection__containerMobile">
       <div class="ThirdSection__containerMobile__slider" ref="animatedContent">
         <div
-          v-for="(_, index) in slides"
+          v-for="(slide, index) in slides"
           :key="index"
           class="ThirdSection__containerMobile__slider__project"
+          :style="{
+            background: `url(${slide.background})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+          }"
           ref="slide"
-        ></div>
+        >
+          <h3 class="ThirdSection__containerMobile__slider__project__title">
+            {{ slide.name }}
+          </h3>
+        </div>
       </div>
     </div>
   </section>
@@ -32,57 +49,73 @@ const slide = ref();
 
 const slides: Record<string, string>[] = [
   {
-    background: '',
-    url: 'https://ackermiam.github.io/rp-game/'
+    background: "/portfolio/rpgamebackground.PNG",
+    url: "https://ackermiam.github.io/rp-game/",
+    name: "rp-game",
   },
   {
-    background: '',
-    url: 'https://ackermiam.github.io/egirl-invaders/'
+    background: "/portfolio/egirlinvaderbackground.PNG",
+    url: "https://ackermiam.github.io/egirl-invaders/",
+    name: "egirl-invaders",
   },
   {
-    background: '',
-    url: ''
+    background: "/portfolio/egirlinvaderbackground.PNG",
+    url: "https://ackermiam.github.io/egirl-invaders/",
+    name: "egirl-invaders",
   },
   {
-    background: '',
-    url: ''
+    background: "/portfolio/egirlinvaderbackground.PNG",
+    url: "https://ackermiam.github.io/egirl-invaders/",
+    name: "egirl-invaders",
   },
   {
-    background: '',
-    url: ''
+    background: "/portfolio/egirlinvaderbackground.PNG",
+    url: "https://ackermiam.github.io/egirl-invaders/",
+    name: "egirl-invaders",
   },
   {
-    background: '',
-    url: ''
+    background: "/portfolio/egirlinvaderbackground.PNG",
+    url: "https://ackermiam.github.io/egirl-invaders/",
+    name: "egirl-invaders",
   },
   {
-    background: '',
-    url: ''
+    background: "/portfolio/egirlinvaderbackground.PNG",
+    url: "https://ackermiam.github.io/egirl-invaders/",
+    name: "egirl-invaders",
   },
-]
+];
 
 const isMobile = () => {
   return window.innerWidth <= 900;
-}
+};
 
 const handleScroll = () => {
-  const progress = animatedContent.value.offsetTop / (scrollableContent.value.scrollHeight - animatedContent.value.offsetHeight);
+  const progress =
+    animatedContent.value.offsetTop /
+    (scrollableContent.value.scrollHeight - animatedContent.value.offsetHeight);
 
   const maxScroll = animatedContent.value.scrollWidth - window.innerWidth;
 
-  animatedContent.value.style.transform = `translateX(${-progress * maxScroll}px)`;
-}
+  animatedContent.value.style.transform = `translateX(${
+    -progress * maxScroll
+  }px)`;
+};
 
 onMounted(() => {
-  if(scrollableContent.value) {
-    scrollableContent.value.style.setProperty('--sliderWidth', `${(slides*slide.value[0].clientWidth + slides*50 + 500)}px`)
+  if (scrollableContent.value) {
+    scrollableContent.value.style.setProperty(
+      "--sliderWidth",
+      `${
+        slides.length * slide.value[0].clientWidth + slides.length * 50 + 1050
+      }px`
+    );
     window.addEventListener("scroll", handleScroll);
   }
-})
+});
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
-})
+});
 </script>
 
 <style scoped lang="scss">
@@ -92,13 +125,13 @@ onUnmounted(() => {
     rgba(0, 0, 0, 1) 25%,
     rgb(79, 31, 90) 50%,
     rgba(0, 0, 0, 1) 75%
-    );
-    display: flex;
-    align-items: start;
+  );
+  display: flex;
+  align-items: start;
 
-    @media (min-width: 900px) {
-      padding-top: 200px;
-    }
+  @media (min-width: 900px) {
+    padding-top: 200px;
+  }
 
   &__container {
     display: none;
@@ -117,16 +150,51 @@ onUnmounted(() => {
     width: var(--sliderWidth);
     height: 100vh;
     display: flex;
-    transition: all .1s ease;
-    margin-left: 150px;
+    transition: all 0.1s ease;
+    margin-left: 550px;
 
     &__project {
       min-width: 450px;
       height: 250px;
-      background: rgba(255, 255, 255, 0.164);
-      backdrop-filter: blur(20px);
-      border-radius: 8px;
+      position: relative;
       margin: 0 25px;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 3px solid rgba(255, 255, 255, 0.192);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: -5px;
+        left: -10px;
+        width: 105%;
+        height: 105%;
+        background: inherit;
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        &::before {
+          filter: blur(0);
+          left: -20px;
+        }
+      }
+
+      &__title {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        font-family: "Carnavonts";
+        font-size: 4em;
+        color: white;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+      }
     }
   }
 
@@ -155,10 +223,42 @@ onUnmounted(() => {
       &__project {
         min-width: 300px;
         height: 200px;
-        background: rgba(255, 255, 255, 0.164);
-        backdrop-filter: blur(20px);
-        border-radius: 8px;
+        position: relative;
         margin: 0 25px;
+        cursor: pointer;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 3px solid rgba(255, 255, 255, 0.192);
+        scroll-snap-align: center;
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: -5px;
+          left: -10px;
+          width: 105%;
+          height: 105%;
+          background: inherit;
+          background-size: cover;
+          background-position: center;
+          filter: blur(2px);
+          transition: all 0.3s ease;
+        }
+
+        &__title {
+          position: absolute;
+          width: 100%;
+          text-align: center;
+          font-family: "Carnavonts";
+          font-size: 4em;
+          color: white;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 2;
+          margin: 0;
+          line-height: 25px;
+        }
       }
     }
   }
