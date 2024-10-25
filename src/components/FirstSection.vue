@@ -72,7 +72,7 @@ p {
 p {
   font-size: 4vw;
   margin: 0;
-  font-family: "Nostal";
+  font-family: "Type";
   max-width: 100%;
 
   @media (min-width: 900px) {

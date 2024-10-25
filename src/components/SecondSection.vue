@@ -33,7 +33,7 @@ onMounted(() => {
 
   &__Mesh {
     width: 100%;
-    height: 50%;
+    height: 50vh;
 
     @media (min-width: 900px) {
       height: 100%;
@@ -45,7 +45,7 @@ onMounted(() => {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 50%;
+    height: 50vh;
 
     @media (min-width: 900px) {
       height: 100%;
@@ -59,7 +59,7 @@ p {
   color: rgb(255, 255, 255);
   font-size: 5vw;
   margin: 0;
-  font-family: "Nostal";
+  font-family: "Type";
   max-width: 100%;
 
   @media (min-width: 900px) {

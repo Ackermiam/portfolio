@@ -11,7 +11,6 @@
           :key="index"
           class="ThirdSection__slider__project"
           :style="{ background: `url(${slide.background})` }"
-          ref="slide"
           @click="redirect(slide.url)"
         >
           <h3 class="ThirdSection__slider__project__title">{{ slide.name }}</h3>
@@ -20,17 +19,14 @@
     </div>
 
     <div v-if="isMobile()" class="ThirdSection__containerMobile">
-      <div class="ThirdSection__containerMobile__slider" ref="animatedContent">
+      <div class="ThirdSection__containerMobile__slider">
         <div
           v-for="(slide, index) in slides"
           :key="index"
           class="ThirdSection__containerMobile__slider__project"
           :style="{
             background: `url(${slide.background})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
           }"
-          ref="slide"
           @click="redirect(slide.url)"
         >
           <h3 class="ThirdSection__containerMobile__slider__project__title">
@@ -47,7 +43,6 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 const animatedContent = ref();
 const scrollableContent = ref();
-const slide = ref();
 
 const slides: Record<string, string>[] = [
   {
@@ -104,17 +99,23 @@ const handleScroll = () => {
 };
 
 const redirect = (url: string) => {
-  window.open(url, '_blank');
-}
+  window.open(url, "_blank");
+};
 
 onMounted(() => {
-  if (scrollableContent.value) {
-    scrollableContent.value.style.setProperty(
-      "--sliderWidth",
-      `${
-        slides.length * slide.value[0].clientWidth + slides.length * 50 + 1050
-      }px`
+  if (scrollableContent.value && animatedContent.value) {
+    const firstSlide = animatedContent.value.querySelector(
+      ".ThirdSection__slider__project"
     );
+    if (firstSlide) {
+      scrollableContent.value.style.setProperty(
+        "--sliderWidth",
+        `${
+          slides.length * firstSlide.clientWidth + slides.length * 50 + 1050
+        }px`
+      );
+    }
+
     window.addEventListener("scroll", handleScroll);
   }
 });
@@ -168,25 +169,28 @@ onUnmounted(() => {
       overflow: hidden;
       border-radius: 8px;
       border: 3px solid rgba(255, 255, 255, 0.192);
+      transition: all .4s ease;
 
       &::before {
         content: "";
         position: absolute;
         top: -5px;
         left: -10px;
-        width: 105%;
+        width: 110%;
         height: 105%;
         background: inherit;
         background-size: cover;
         background-position: center;
         filter: blur(5px);
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
       }
 
       &:hover {
+        transform: rotateX(-20deg) rotateY(-20deg);
         &::before {
+
           filter: blur(0);
-          left: -20px;
+          left: -25px;
         }
       }
 
