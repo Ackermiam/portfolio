@@ -141,15 +141,7 @@ onUnmounted(() => {
   );
 
   @media (min-width: 900px) {
-    background: linear-gradient(
-      190deg,
-      rgba(0, 0, 0, 1) 15%,
-      rgba(142, 50, 162, 1) 30%,
-      rgba(0, 0, 0, 1) 45%,
-      rgba(28, 10, 32, 1) 55%,
-      rgba(142, 50, 162, 1) 70%,
-      rgba(0, 0, 0, 1) 85%
-    );
+    background: none;
   }
 
   h2 {
