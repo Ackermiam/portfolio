@@ -35,7 +35,7 @@ export class Logic {
       this.scene = new Scene();
 
       this.camera = new PerspectiveCamera(45, width / height, 0.1, 1000);
-      window.innerWidth > 900 ? this.camera.position.set(0, 40, 300) : this.camera.position.set(0, 40, 200);
+      window.innerWidth > 900 ? this.camera.position.set(0, 40, 300) : this.camera.position.set(0, 40, 225);
 
 
       const loader = new GLTFLoader();

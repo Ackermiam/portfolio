@@ -2,6 +2,7 @@
   <section class="SecondSection">
     <div class="SecondSection__Mesh" id="three"></div>
     <div class="SecondSection__Text">
+      <h3>Qui suis-je ?</h3>
       <p>
         Développeur front-end JavaScript/TypeScript, je crée surtout des applications avec Vue.js et Nuxt. Depuis quelque temps, la 3D m'intrigue fortement, je me lance donc dans l'apprentissage et la création de petites expériences et jeux sympas avec Three.js. J’ai aussi envie d’explorer des technos immersives comme la réalité virtuelle et augmentée pour enrichir l'expérience utilisateur.
       </p>
@@ -43,7 +44,8 @@ onMounted(() => {
 
   &__Text {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     width: 100%;
     height: 50vh;
 
@@ -54,8 +56,19 @@ onMounted(() => {
   }
 }
 
-p {
+h3, p {
   padding: 0 6vw;
+}
+
+h3 {
+  font-family: 'Carnavonts';
+  font-size: 5em;
+  margin-top: 0;
+  margin-bottom: .5em;
+  color: white;
+}
+
+p {
   color: rgb(255, 255, 255);
   font-size: 1em;
   margin: 0;
@@ -66,7 +79,7 @@ p {
     font-size: 2.5vw;
   }
   @media (min-width: 900px) {
-    font-size: 1.5vw;
+    font-size: 1.2vw;
   }
 }
 </style>
