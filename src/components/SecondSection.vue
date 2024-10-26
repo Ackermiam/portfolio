@@ -57,11 +57,14 @@ onMounted(() => {
 p {
   padding: 0 6vw;
   color: rgb(255, 255, 255);
-  font-size: 5vw;
+  font-size: 1em;
   margin: 0;
   font-family: "Type";
   max-width: 100%;
 
+  @media (min-width: 600px) {
+    font-size: 2.5vw;
+  }
   @media (min-width: 900px) {
     font-size: 1.5vw;
   }
