@@ -22,7 +22,15 @@ onMounted(() => {
 <style scoped lang="scss">
 .SecondSection {
   height: 100vh;
-  background: linear-gradient(170deg, rgba(0,0,0,1) 25%, rgb(79, 31, 90) 50%, rgba(0,0,0,1) 75%);
+  background-color:hsla(0,0%,0%,1);
+background-image:
+radial-gradient(at 53% 50%, hsla(289,57%,47%,1) 0px, transparent 50%),
+radial-gradient(at 97% 42%, hsla(240,56%,52%,1) 0px, transparent 50%),
+radial-gradient(at 8% 43%, hsla(287,45%,34%,1) 0px, transparent 50%),
+radial-gradient(at 69% 43%, hsla(340,51%,52%,1) 0px, transparent 50%),
+radial-gradient(at 23% 59%, hsla(281,61%,51%,1) 0px, transparent 50%),
+radial-gradient(at 80% 60%, hsla(266,68%,32%,1) 0px, transparent 50%),
+radial-gradient(at 33% 40%, hsla(288,61%,30%,1) 0px, transparent 50%);
   display: flex;
   flex-direction: column;
   justify-content: center;

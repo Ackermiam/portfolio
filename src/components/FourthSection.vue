@@ -130,16 +130,15 @@ onUnmounted(() => {
 .FourthSection {
   display: flex;
   align-items: start;
-  background: linear-gradient(
-    190deg,
-    rgba(0, 0, 0, 1) 25%,
-    rgb(79, 31, 90) 50%,
-    rgba(0, 0, 0, 1) 75%
-  );
-
-  @media (min-width: 900px) {
-    background: none;
-  }
+  background-color:hsla(330,0%,0%,1);
+background-image:
+radial-gradient(at 36% 45%, hsla(266,49%,25%,1) 0px, transparent 50%),
+radial-gradient(at 54% 45%, hsla(281,69%,23%,1) 0px, transparent 50%),
+radial-gradient(at 98% 48%, hsla(239,51%,21%,1) 0px, transparent 50%),
+radial-gradient(at 74% 40%, hsla(260,54%,18%,1) 0px, transparent 50%),
+radial-gradient(at 3% 41%, hsla(341,58%,21%,1) 0px, transparent 50%),
+radial-gradient(at 11% 70%, hsla(289,51%,22%,1) 0px, transparent 50%),
+radial-gradient(at 79% 70%, hsla(288,60%,18%,1) 0px, transparent 50%);
 
   h2 {
     font-family: "Carnavonts";

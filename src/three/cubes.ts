@@ -39,7 +39,7 @@ export class Cubes {
     directionalLight.position.set(0, 10, 10).normalize();
     this.scene.add(directionalLight);
 
-    const pointLight1 = new PointLight(0x96fff8, 10, 100);
+    const pointLight1 = new PointLight(0x00fff2, 10, 100);
     pointLight1.position.set(0, 0, 5);
     this.scene.add(pointLight1);
 
@@ -51,7 +51,7 @@ export class Cubes {
     pointLight3.position.set(-5, 0, 5);
     this.scene.add(pointLight3);
 
-    for(let i = -7; i < 8; i += 0.7) {
+    for(let i = -9; i < 9; i += 0.7) {
       for(let j = -1; j < 1; j += 0.7) {
         const cube = new Mesh(geometry, material);
         cube.position.set(i, j, 0);
