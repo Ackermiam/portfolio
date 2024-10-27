@@ -15,6 +15,10 @@
 .ThirdSection {
   display: flex;
   flex-direction: column;
+  margin-top: 10em;
+  @media (min-width: 600px) {
+      margin-top: 0;
+    }
 
   h2 {
     font-family: "Carnavonts";

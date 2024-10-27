@@ -3,7 +3,6 @@ import {
   PerspectiveCamera,
   WebGLRenderer,
   DirectionalLight,
-  AmbientLight,
   PointLight,
   AnimationMixer,
   Clock,
@@ -107,9 +106,10 @@ export class Logic {
   moveOnScroll() {
     if(this.mesh) {
       if (scrollDown.value === true) {
-        this.mesh.rotation.y += 0.02;
+        window.innerWidth > 900 ? this.mesh.rotation.y += 0.02 : this.mesh.rotation.y += 0.01
+
       } else {
-        this.mesh.rotation.y -= 0.02;
+        window.innerWidth > 900 ? this.mesh.rotation.y -= 0.02 : this.mesh.rotation.y -= 0.01;
       }
     }
   }
