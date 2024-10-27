@@ -20,6 +20,5 @@ onMounted(() => {
 <style scoped lang="scss">
 .InterSection {
   height: 50vh;
-
 }
 </style>

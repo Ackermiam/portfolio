@@ -21,10 +21,12 @@ export class Cubes {
     this.mesh = [];
 
     const { width, height } = ref.getBoundingClientRect();
+
     this.camera = new PerspectiveCamera(
       45,
       width / height
     );
+
     this.camera.position.set(0, 0, 5);
 
     this.renderer = new WebGLRenderer({ antialias: true });
@@ -49,15 +51,13 @@ export class Cubes {
     pointLight3.position.set(-5, 0, 5);
     this.scene.add(pointLight3);
 
-    for(let i = -15; i < 15; i += 0.7) {
-      //x = -15 / y = -15
-      for(let j = -15; j < 15; j += 0.7) {
+    for(let i = -7; i < 8; i += 0.7) {
+      for(let j = -1; j < 1; j += 0.7) {
         const cube = new Mesh(geometry, material);
         cube.position.set(i, j, 0);
         this.mesh.push(cube);
       }
     }
-    console.log(this.mesh);
 
     this.scene.add(...this.mesh);
 
@@ -66,6 +66,13 @@ export class Cubes {
     window.addEventListener("scroll", () => {
       this.moveOnScroll();
     });
+
+    //const fetchedCanvas = document.querySelector("canvas");
+
+    /*ref.addEventListener("mousemove", (e) => {
+      console.log(e.clientX, e.clientY);
+
+    })*/
 
     this.tick();
   }
@@ -84,6 +91,9 @@ export class Cubes {
   }
 
   moveOnScroll() {
-    this.mesh.forEach(e => e.rotateY(0.02))
+    this.mesh.forEach(e => {
+      e.rotateY(0.02);
+      e.rotateX(0.02);
+    })
   }
 }

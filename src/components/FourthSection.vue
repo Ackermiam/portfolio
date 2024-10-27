@@ -97,8 +97,6 @@ const handleScroll = () => {
   animatedContent.value.style.transform = `translateX(${
     -progress * maxScroll
   }px)`;
-
-  console.log(animatedContent.value.scrollWidth);
 };
 
 const redirect = (url: string) => {
@@ -117,7 +115,6 @@ onMounted(() => {
           slides.length * firstSlide.clientWidth + slides.length * 50 + 1050
         }px`
       );
-      console.log(slides.length * firstSlide.clientWidth + slides.length * 50 + 1050 - window.innerWidth)
     }
 
     window.addEventListener("scroll", handleScroll);
