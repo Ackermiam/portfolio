@@ -8,7 +8,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          // Exemples pour découper les chunks des librairies principales
           'vue-vendors': ['vue'],
           'three-vendors': ['three'],
         },
