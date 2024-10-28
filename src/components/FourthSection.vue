@@ -13,7 +13,9 @@
           :style="{ background: `url(${slide.background})` }"
           @click="redirect(slide.url)"
         >
-          <h3 class="FourthSection__slider__project__title">{{ slide.name }}</h3>
+          <h3 class="FourthSection__slider__project__title">
+            {{ slide.name }}
+          </h3>
         </div>
       </div>
     </div>
@@ -87,7 +89,6 @@ const isMobile = () => {
 };
 
 const handleScroll = () => {
-
   const progress =
     animatedContent.value.offsetTop /
     (scrollableContent.value.scrollHeight - animatedContent.value.offsetHeight);
@@ -130,15 +131,18 @@ onUnmounted(() => {
 .FourthSection {
   display: flex;
   align-items: start;
-  background-color:hsla(330,0%,0%,1);
-background-image:
-radial-gradient(at 36% 45%, hsla(266,49%,25%,1) 0px, transparent 50%),
-radial-gradient(at 54% 45%, hsla(281,69%,23%,1) 0px, transparent 50%),
-radial-gradient(at 98% 48%, hsla(239,51%,21%,1) 0px, transparent 50%),
-radial-gradient(at 74% 40%, hsla(260,54%,18%,1) 0px, transparent 50%),
-radial-gradient(at 3% 41%, hsla(341,58%,21%,1) 0px, transparent 50%),
-radial-gradient(at 11% 70%, hsla(289,51%,22%,1) 0px, transparent 50%),
-radial-gradient(at 79% 70%, hsla(288,60%,18%,1) 0px, transparent 50%);
+  background-color: hsla(330, 0%, 0%, 1);
+  background-image: radial-gradient(
+      at 36% 45%,
+      hsla(266, 49%, 25%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 54% 45%, hsla(281, 69%, 23%, 1) 0px, transparent 50%),
+    radial-gradient(at 98% 48%, hsla(239, 51%, 21%, 1) 0px, transparent 50%),
+    radial-gradient(at 74% 40%, hsla(260, 54%, 18%, 1) 0px, transparent 50%),
+    radial-gradient(at 3% 41%, hsla(341, 58%, 21%, 1) 0px, transparent 50%),
+    radial-gradient(at 11% 70%, hsla(289, 51%, 22%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 70%, hsla(288, 60%, 18%, 1) 0px, transparent 50%);
 
   h2 {
     font-family: "Carnavonts";
