@@ -7,7 +7,7 @@ import {
   BoxGeometry,
   MeshPhongMaterial,
   Mesh,
-  PointLight
+  PointLight,
 } from "three";
 
 export class Cubes {
@@ -24,18 +24,19 @@ export class Cubes {
 
     const { width, height } = ref.getBoundingClientRect();
 
-    this.camera = new PerspectiveCamera(
-      45,
-      width / height
-    );
+    this.camera = new PerspectiveCamera(45, width / height);
 
     this.camera.position.set(0, 0, 5);
 
     this.renderer = new WebGLRenderer({ antialias: true });
     this.renderer.setSize(width, height);
 
-    const geometry = new BoxGeometry(.4, .4, .4);
-    const material = new MeshPhongMaterial({ color: 0xff8ff4, shininess: 70, specular: 0xffabf7});
+    const geometry = new BoxGeometry(0.4, 0.4, 0.4);
+    const material = new MeshPhongMaterial({
+      color: 0xff8ff4,
+      shininess: 70,
+      specular: 0xffabf7,
+    });
 
     const directionalLight = new DirectionalLight(0xffffff, 3);
     directionalLight.position.set(0, 10, 10).normalize();
@@ -53,10 +54,10 @@ export class Cubes {
     pointLight3.position.set(-5, 0, 5);
     this.scene.add(pointLight3);
 
-    for(let i = -40; i < 40; i += .7) {
-      for(let j = -1; j < 1; j += .7) {
+    for (let i = -40; i < 40; i += 0.7) {
+      for (let j = -1; j < 1; j += 0.7) {
         const cube = new Mesh(geometry, material);
-        cube.position.set(i, j, i/2);
+        cube.position.set(i, j, i / 2);
         this.mesh.push(cube);
       }
     }
@@ -71,7 +72,7 @@ export class Cubes {
 
     ref.addEventListener("mousemove", (e) => {
       this.mousePosX = e.clientX;
-    })
+    });
 
     this.tick();
   }
@@ -86,13 +87,16 @@ export class Cubes {
   }
 
   move() {
-    this.mesh.forEach(e => e.rotateY(0.005))
+    this.mesh.forEach((e) => {
+      e.rotateY(0.005);
+
+    });
   }
 
   moveOnScroll() {
-    this.mesh.forEach(e => {
+    this.mesh.forEach((e) => {
       e.rotateY(Math.random() * (0.05 - 0.01) + 0.01);
       e.rotateX(Math.random() * (0.05 - 0.01) + 0.01);
-    })
+    });
   }
 }
