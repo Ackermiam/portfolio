@@ -12,13 +12,11 @@ const instancedCubes = ref();
 
 onMounted(() => {
   const cubes = new Cubes(instancedCubes.value);
-
-  console.log(cubes)
 })
 </script>
 
 <style scoped lang="scss">
 .InterSection {
-  height: 50vh;
+  height: 70vh;
 }
 </style>

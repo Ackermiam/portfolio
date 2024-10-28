@@ -47,7 +47,6 @@ export class Logic {
         this.mesh.scale.z = 0.1;
         this.mesh.rotation.x += .2;
         this.mesh.rotation.z += .2;
-        console.log(this.mesh, this.animation)
 
         this.scene.add(this.mesh);
 

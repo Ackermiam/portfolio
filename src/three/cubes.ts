@@ -15,10 +15,12 @@ export class Cubes {
   scene: Scene;
   camera: PerspectiveCamera;
   mesh: Object3D[];
+  mousePosX: number;
 
   constructor(ref: HTMLCanvasElement) {
     this.scene = new Scene();
     this.mesh = [];
+    this.mousePosX = 0;
 
     const { width, height } = ref.getBoundingClientRect();
 
@@ -51,10 +53,10 @@ export class Cubes {
     pointLight3.position.set(-5, 0, 5);
     this.scene.add(pointLight3);
 
-    for(let i = -9; i < 9; i += 0.7) {
-      for(let j = -1; j < 1; j += 0.7) {
+    for(let i = -40; i < 40; i += .7) {
+      for(let j = -1; j < 1; j += .7) {
         const cube = new Mesh(geometry, material);
-        cube.position.set(i, j, 0);
+        cube.position.set(i, j, i/2);
         this.mesh.push(cube);
       }
     }
@@ -67,12 +69,9 @@ export class Cubes {
       this.moveOnScroll();
     });
 
-    //const fetchedCanvas = document.querySelector("canvas");
-
-    /*ref.addEventListener("mousemove", (e) => {
-      console.log(e.clientX, e.clientY);
-
-    })*/
+    ref.addEventListener("mousemove", (e) => {
+      this.mousePosX = e.clientX;
+    })
 
     this.tick();
   }
@@ -92,8 +91,8 @@ export class Cubes {
 
   moveOnScroll() {
     this.mesh.forEach(e => {
-      e.rotateY(0.02);
-      e.rotateX(0.02);
+      e.rotateY(Math.random() * (0.05 - 0.01) + 0.01);
+      e.rotateX(Math.random() * (0.05 - 0.01) + 0.01);
     })
   }
 }
